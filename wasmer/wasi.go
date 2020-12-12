@@ -98,7 +98,8 @@ func NewWasiImportObjectForVersion(
 		mappedDirsBytes = append(mappedDirsBytes, wasiMappedDir)
 	}
 
-	var inner = cNewWasmerWasiImportObject(
+	var inner = cNewWasmerWasiImportObjectForVersion(
+		(uint)(version),
 		(*cWasmerByteArray)(unsafe.Pointer(&argumentsBytes)),
 		(uint)(len(argumentsBytes)),
 		(*cWasmerByteArray)(unsafe.Pointer(&environmentVariablesBytes)),
